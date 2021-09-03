@@ -1,6 +1,6 @@
-@import './foundations/colors.scss';
-@import './foundations/fonts.scss';
-@import './foundations/mixins.scss';
+@import "./foundations/colors.scss";
+@import "./foundations/fonts.scss";
+@import "./foundations/mixins.scss";
 
 html {
   margin: 0;
@@ -17,32 +17,210 @@ h1 {
   margin: 0;
 }
 
+select {
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 27px;
+  letter-spacing: 0px;
+  text-align: left;
+  width: 219px;
+  padding: 8px 0 10px 16px;
+  background-color: transparent;
+  border-radius: 19px;
+  border-color: var(--gray-variation);
+  color: var(--gray-variation);
+}
+
+select option {
+  background-color: transparent;
+  border: none;
+}
+
 .heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   background-color: var(--green);
   height: 500px;
+  position: relative;
+
+  &-leftLeaves {
+    position: absolute;
+    left: 0;
+    width: 862px;
+  }
+
+  &-rightLeaves {
+    position: absolute;
+    right: 0;
+    width: 361px;
+    z-index: 1;
+  }
 
   &__container {
-      max-width: 900px;
+    position: relative;
+    width: 900px;
+    color: var(--white);
+
+    h1 {
+      font-family: "Montserrat";
+      font-size: 70px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 85px;
+      letter-spacing: 0px;
+      text-align: left;
+      width: 400px;
+      margin: 35px 0;
+    }
+
+    &-plantPerson {
+      position: absolute;
+      right: 33px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 335px;
+      height: 428px;
+      z-index: 0;
+    }
   }
 }
 
 .formSection {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--white);
   height: 299px;
 
   &__container {
-    max-width: 900px;
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &__sunContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      color: var(--gray);
+      width: 221px;
+
+      img {
+        width: 75px;
+      }
+
+      p {
+        font-family: "Montserrat";
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 22px;
+        text-align: left;
+
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+
+    &__waterContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      color: var(--gray);
+      width: 221px;
+
+      img {
+        width: 103px;
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+      }
+
+      p {
+        font-family: "Montserrat";
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 22px;
+        text-align: left;
+
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+
+    &__petsContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      color: var(--gray);
+      width: 221px;
+
+      img {
+        width: 75px;
+      }
+
+      p {
+        font-family: "Montserrat";
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 22px;
+        text-align: left;
+
+        span {
+          font-weight: 700;
+        }
+      }
+    }
   }
 }
 
 .resultsSection {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--white-variation);
+  color: var(--disabled);
   height: 324px;
 
   &__container {
-    max-width: 900px;
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__textContainer {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-right: 110px;
+
+      h1 {
+        font-size: 45px;
+        font-weight: 700;
+        line-height: 55px;
+        margin: 6px 0;
+      }
+
+      h3 {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 27px;
+        width: 219px;
+        text-align: justify;
+      }
+    }
+
+    &__imgContainer {
+      width: 104.7px;
+      margin-left: 110px;
+    }
   }
 }
