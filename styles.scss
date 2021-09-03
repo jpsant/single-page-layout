@@ -184,8 +184,7 @@ select option {
   justify-content: center;
   align-items: center;
   background-color: var(--white);
-  height: 299px;
-  display: none;
+  min-height: 299px;
 
   &__container {
     width: 900px;
@@ -194,6 +193,11 @@ select option {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      margin-top: 18px;
+    }
 
     &__sunContainer {
       display: flex;
@@ -227,6 +231,10 @@ select option {
       justify-content: center;
       color: var(--gray);
       width: 221px;
+
+      @media screen and (max-width: 768px) {
+        margin: 35px 0 60px 0;
+      }
 
       img {
         width: 103px;
