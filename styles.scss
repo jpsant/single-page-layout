@@ -1,0 +1,48 @@
+@import './foundations/colors.scss';
+@import './foundations/fonts.scss';
+@import './foundations/mixins.scss';
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--white);
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.heroSection {
+  width: 100%;
+  background-color: var(--green);
+  height: 500px;
+
+  &__container {
+      max-width: 900px;
+  }
+}
+
+.formSection {
+  width: 100%;
+  background-color: var(--white);
+  height: 299px;
+
+  &__container {
+    max-width: 900px;
+  }
+}
+
+.resultsSection {
+  width: 100%;
+  background-color: var(--white-variation);
+  height: 324px;
+
+  &__container {
+    max-width: 900px;
+  }
+}
