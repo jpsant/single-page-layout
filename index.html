@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
   <head>
     <title>Front End Test - Greenthumb</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="styles.scss" />
   </head>
-
   <body>
     <section class="heroSection">
       <img class="heroSection-leftLeaves" src="images/hero/desktop/left-leaves.png" alt="Left Leaves img">
@@ -24,32 +22,32 @@
       </div>
     </section>
     <section class="formSection">
-      <form class="formSection__container">
+      <form id="form" class="formSection__container">
         <article class="formSection__container__sunContainer">
-          <img src="images/illustrations/sun.png" alt="">
+          <img src="images/illustrations/sun.png" alt="Sun Illustration">
           <p><span>1.</span> Set the amount of <span>sunlight</span> your plant will get.</p>
-          <select name="sunlight" id="sunlight">
-            <option value="0">Select...</option>
+          <select name="sunlight" id="sun">
+            <option value="" disabled selected hidden>Select...</option>
             <option value="no">no</option>
             <option value="low">low</option>
             <option value="high">high</option>
           </select>
         </article>
         <article class="formSection__container__waterContainer">
-          <img src="images/illustrations/wateringcan.png" alt="">
+          <img src="images/illustrations/wateringcan.png" alt="Water Illustration">
           <p><span>2.</span> How often do you want to <span>water</span> your plant?</p>
           <select name="water" id="water">
-            <option value="0">Select...</option>
+            <option value="" disabled selected hidden>Select...</option>
             <option value="regularly">regularly</option>
             <option value="daily">daily</option>
             <option value="rarely">rarely</option>
           </select>
         </article>
         <article class="formSection__container__petsContainer">
-          <img src="images/illustrations/dog.png" alt="">
+          <img src="images/illustrations/dog.png" alt="Dog Illustration">
           <p><span>3.</span> Do you have pets? Do they <span>chew</span> plants?</p>
           <select name="pets" id="pets">
-            <option value="0">Select...</option>
+            <option value="" disabled selected hidden>Select...</option>
             <option value="true">yes</option>
             <option value="false">no</option>
           </select>
@@ -57,16 +55,111 @@
       </form>
     </section>
     <section class="resultsSection">
-      <div class="resultsSection__container">
-        <div class="resultsSection__container__textContainer">
-          <h1>No results yet…</h1>
-          <h3>Use the filters above to find the plant that best fits your environment :)  </h3>
+      <div class="resultsSection__container" id="resultsContainer">
+        <div class="resultsSection__container__foundResults">
+          <div class="resultsSection__container__foundResults__heading">
+            <img src="/images/illustrations/pick.png" alt="Pickig leaf Illustration">
+            <h1>Our picks for you</h1>
+          </div>
+          <div class="resultsSection__container__foundResults__resultsContainer">
+            <div class="favorite">
+              <img class="favorite-image" src="/images/plants/bunny-ears-cacti.jpg" alt="plant 1">
+              <h3 class="favorite-name">Bunny ears cacti</h3>
+              <div class="favorite__description">
+                <h3 class="favorite__description-price">$25</h3>
+                <div class="favorite__description__icons">
+                  <img src="/images/icons/pet.svg" alt="">
+                  <img src="/images/icons/low-sun.svg" alt="">
+                  <img src="/images/icons/1-drop.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="/images/plants/euphorbia-eritrea.jpg" alt="plant 1">
+              <h3 class="item-name">Euphoria eritea</h3>
+              <div class="item__description">
+                <h3 class="item__description-price">$25</h3>
+                <div class="item__description__icons">
+                  <img src="/images/icons/pet.svg" alt="">
+                  <img src="/images/icons/low-sun.svg" alt="">
+                  <img src="/images/icons/1-drop.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="/images/plants/euphorbia-eritrea.jpg" alt="plant 1">
+              <h3 class="item-name">Euphoria eritea</h3>
+              <div class="item__description">
+                <h3 class="item__description-price">$25</h3>
+                <div class="item__description__icons">
+                  <img src="/images/icons/pet.svg" alt="">
+                  <img src="/images/icons/low-sun.svg" alt="">
+                  <img src="/images/icons/1-drop.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="/images/plants/euphorbia-eritrea.jpg" alt="plant 1">
+              <h3 class="item-name">Euphoria eritea</h3>
+              <div class="item__description">
+                <h3 class="item__description-price">$25</h3>
+                <div class="item__description__icons">
+                  <img src="/images/icons/pet.svg" alt="">
+                  <img src="/images/icons/low-sun.svg" alt="">
+                  <img src="/images/icons/1-drop.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="/images/plants/euphorbia-eritrea.jpg" alt="plant 1">
+              <h3 class="item-name">Euphoria eritea</h3>
+              <div class="item__description">
+                <h3 class="item__description-price">$25</h3>
+                <div class="item__description__icons">
+                  <img src="/images/icons/pet.svg" alt="">
+                  <img src="/images/icons/low-sun.svg" alt="">
+                  <img src="/images/icons/1-drop.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="/images/plants/euphorbia-eritrea.jpg" alt="plant 1">
+              <h3 class="item-name">Euphoria eritea</h3>
+              <div class="item__description">
+                <h3 class="item__description-price">$25</h3>
+                <div class="item__description__icons">
+                  <img src="/images/icons/pet.svg" alt="">
+                  <img src="/images/icons/low-sun.svg" alt="">
+                  <img src="/images/icons/1-drop.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="/images/plants/euphorbia-eritrea.jpg" alt="plant 1">
+              <h3 class="item-name">Euphoria eritea</h3>
+              <div class="item__description">
+                <h3 class="item__description-price">$25</h3>
+                <div class="item__description__icons">
+                  <img src="/images/icons/pet.svg" alt="">
+                  <img src="/images/icons/low-sun.svg" alt="">
+                  <img src="/images/icons/1-drop.svg" alt="">
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="resultsSection__container__imgContainer">
-          <img src="/images/illustrations/no-results.png" alt="No results image">
+        <div style="display: none;" id="noResults" class="resultsSection__container__noResults">
+          <div class="resultsSection__container__noResults__textContainer">
+            <h1>No results yet…</h1>
+            <h3>Use the filters above to find the plant that best fits your environment :)  </h3>
+          </div>
+          <div class="resultsSection__container__noResults__imgContainer">
+            <img src="/images/illustrations/no-results.png" alt="No results image">
+          </div>
         </div>
       </div>
     </section>
   </body>
-  <script src="/script.js"></script>
+  <script type="text/javascript" src="/script.js"></script>
 </html>
