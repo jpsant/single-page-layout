@@ -1,6 +1,12 @@
+// PROJECT FOUNDATIONS
 @import "./foundations/colors.scss";
 @import "./foundations/fonts.scss";
 @import "./foundations/mixins.scss";
+
+// PROJECT STYLESHEETS
+@import "./stylesheets/heroSection.scss";
+@import "./stylesheets/formSection.scss";
+@import "./stylesheets/resultsSection.scss";
 
 html {
   margin: 0;
@@ -38,373 +44,25 @@ select option {
   border: none;
 }
 
-.heroSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: var(--green);
-  height: 500px;
-  position: relative;
-
-  @media screen and (max-width: 768px) {
-    height: 100%;
-  }
-
-  @media screen and (max-width: 450px) {
-    height: 593px;
-  }
-
-  &-leftLeaves {
-    position: absolute;
-    left: 0;
-    width: 862px;
-
-    @media screen and (max-width: 1366px) {
-      left: -340px;
-    }
-
-    @media screen and (max-width: 768px) {
-      left: 0;
-      top: -390px;
-      content: url("/images/hero/mobile/mobile-leaves.png");
-      z-index: 1;
-      width: 100%;
-    }
-
-    @media screen and (max-width: 450px) {
-      top: -100px;
-    }
-
-    @media screen and (max-width: 320px) {
-      top: 0;
-    }
-  }
-
-  &-rightLeaves {
-    position: absolute;
-    right: 0;
-    width: 361px;
-    z-index: 1;
-
-    @media screen and (max-width: 1366px) {
-      right: -200px;
-    }
-
-    @media screen and (max-width: 884px) {
-      display: none;
-    }
-  }
-
-  &__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 900px;
-    color: var(--white);
-
-    @media screen and (max-width: 1366px) {
-      justify-content: space-evenly;
-    }
-
-    @media screen and (max-width: 884px) {
-      justify-content: flex-end;
-    }
-
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media screen and (max-width: 450px) {
-      justify-content: space-between;
-      height: 100%;
-    }
-
-    &__textContainer {
-      display: flex;
-      flex-direction: column;
-      z-index: 1;
-
-      &-logo {
-        width: 208px;
-
-        @media screen and (max-width: 768px) {
-          margin-top: 36px;
-        }
-
-        @media screen and (max-width: 450px) {
-          width: 161px;
-        }
-      }
-
-      h1 {
-        font-family: "Montserrat";
-        font-size: 70px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 85px;
-        letter-spacing: 0px;
-        text-align: left;
-        width: 400px;
-        margin: 32px 0 24px 0;
-
-        @media screen and (max-width: 768px) {
-          margin: 8px 0 16px 0;
-        }
-
-        @media screen and (max-width: 450px) {
-          font-size: 40px;
-          line-height: 49px;
-          width: 251px;
-          margin: 16px 0 30px 0;
-        }
-      }
-
-      a {
-        text-align: left;
-      }
-    }
-
-    &-plantPerson {
-      width: 335px;
-      z-index: 0;
-
-      @media screen and (max-width: 768px) {
-        content: url("/images/hero/mobile/mobile-plantperson.png");
-        width: 500px;
-      }
-
-      @media screen and (max-width: 450px) {
-        width: 276px;
-      }
-    }
-  }
-}
-
-.formSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--white);
-  min-height: 299px;
-
-  &__container {
-    width: 900px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      margin: 20px 32px 30px 32px;
-    }
-
-    &__sunContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      color: var(--gray);
-      width: 221px;
-
-      img {
-        width: 75px;
-      }
-
-      p {
-        font-family: "Montserrat";
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 22px;
-        text-align: left;
-
-        span {
-          font-weight: 700;
-        }
-      }
-    }
-
-    &__waterContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      color: var(--gray);
-      width: 221px;
-
-      @media screen and (max-width: 768px) {
-        margin: 35px 0 60px 0;
-      }
-
-      img {
-        width: 103px;
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-      }
-
-      p {
-        font-family: "Montserrat";
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 22px;
-        text-align: left;
-
-        span {
-          font-weight: 700;
-        }
-      }
-    }
-
-    &__petsContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      color: var(--gray);
-      width: 221px;
-
-      img {
-        width: 75px;
-      }
-
-      p {
-        font-family: "Montserrat";
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 22px;
-        text-align: left;
-
-        span {
-          font-weight: 700;
-        }
-      }
-    }
-  }
-}
-
-.resultsSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--white-variation);
-  color: var(--disabled);
-  height: 100%;
-
-  &__container {
-    width: 900px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
-    &__noResults {
-      width: 100%;
-      align-items: center;
-      display: flex;
-      justify-content: flex-start;
-
-      @media screen and (max-width: 768px) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 35px;
-      }
-
-      &__textContainer {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        margin: 60px 110px 60px 0;
-
-        @media screen and (max-width: 768px) {
-          margin: 0 0 37px 0;
-        }
-
-        h1 {
-          font-size: 45px;
-          font-weight: 700;
-          line-height: 55px;
-          margin: 6px 0;
-        }
-
-        h3 {
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 27px;
-          width: 219px;
-          text-align: justify;
-
-          @media screen and (max-width: 768px) {
-            width: 359px;
-          }
-
-          @media screen and (max-width: 450px) {
-            width: 100%;
-          }
-        }
-      }
-
-      &__imgContainer {
-        width: 104.7px;
-        margin-left: 110px;
-
-        @media screen and (max-width: 768px) {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-left: 0;
-          width: 100%;
-        }
-      }
-    }
-
-    &__foundResults {
-      margin: 37px 0 53px 0;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-
-      &__heading {
-        display: inherit;
-        flex-direction: inherit;
-
-        img {
-          width: 158px;
-        }
-
-        h1 {
-          font-weight: bold;
-          font-size: 55px;
-          line-height: 67px;
-          margin: 5px 0 30px 0;
-          color: var(--dark);
-        }
-      }
-
-      &__resultsContainer {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        column-gap: 25px;
-        row-gap: 20px;
-      }
-    }
-  }
-}
-
 .item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  min-height: 245px;
-  max-height: 245px;
+  width: -webkit-fill-available;
+  grid-column: span 1;
+  grid-row: span 1;
   padding: 12px 20px;
   background-color: var(--white);
   color: var(--ascent);
+
+  &-image {
+    width: 90%;
+
+    img {
+      width: -webkit-fill-available;
+    }
+  }
 
   &-name {
     width: 100%;
@@ -434,8 +92,7 @@ select option {
   justify-content: space-evenly;
   grid-column: span 2;
   grid-row: span 2;
-  min-height: 534px;
-  max-height: 534px;
+  width: -webkit-fill-available;
   padding: 12px 20px;
   color: var(--ascent);
   background-color: var(--white);
@@ -449,7 +106,7 @@ select option {
   }
 
   &-image {
-    width: 100%
+    width: fit-content;
   }
 
   h3 {
@@ -475,7 +132,7 @@ select option {
       width: 35%;
 
       img {
-        transform: scale(1.8);
+        transform: scale(1.6);
       }
     }
   }

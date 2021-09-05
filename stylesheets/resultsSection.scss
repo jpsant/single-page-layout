@@ -1,0 +1,108 @@
+.resultsSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white-variation);
+  color: var(--disabled);
+  height: 100%;
+
+  &__container {
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    &__noResults {
+      width: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 35px;
+      }
+
+      &__textContainer {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        margin: 60px 110px 60px 0;
+
+        @media screen and (max-width: 768px) {
+          margin: 0 0 37px 0;
+        }
+
+        h1 {
+          font-size: 45px;
+          font-weight: 700;
+          line-height: 55px;
+          margin: 6px 0;
+        }
+
+        h3 {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 27px;
+          width: 219px;
+          text-align: justify;
+
+          @media screen and (max-width: 768px) {
+            width: 359px;
+          }
+
+          @media screen and (max-width: 450px) {
+            width: 100%;
+          }
+        }
+      }
+
+      &__imgContainer {
+        width: 104.7px;
+        margin-left: 110px;
+
+        @media screen and (max-width: 768px) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+    }
+
+    &__foundResults {
+      margin: 37px 0 53px 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      &__heading {
+        display: inherit;
+        flex-direction: inherit;
+
+        img {
+          width: 158px;
+        }
+
+        h1 {
+          font-weight: bold;
+          font-size: 55px;
+          line-height: 67px;
+          margin: 5px 0 30px 0;
+          color: var(--dark);
+        }
+      }
+
+      &__resultsContainer {
+        display: grid;
+        grid-template-columns: repeat(4, 206px);
+        column-gap: 25px;
+        row-gap: 20px;
+      }
+    }
+  }
+}

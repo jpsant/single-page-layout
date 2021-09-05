@@ -1,0 +1,144 @@
+.heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--green);
+  height: 500px;
+  position: relative;
+
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
+
+  @media screen and (max-width: 450px) {
+    height: 593px;
+  }
+
+  &-leftLeaves {
+    position: absolute;
+    left: 0;
+    width: 862px;
+
+    @media screen and (max-width: 1366px) {
+      left: -340px;
+    }
+
+    @media screen and (max-width: 768px) {
+      left: 0;
+      top: -390px;
+      content: url("/images/hero/mobile/mobile-leaves.png");
+      z-index: 1;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 450px) {
+      top: -100px;
+    }
+
+    @media screen and (max-width: 320px) {
+      top: 0;
+    }
+  }
+
+  &-rightLeaves {
+    position: absolute;
+    right: 0;
+    width: 361px;
+    z-index: 1;
+
+    @media screen and (max-width: 1366px) {
+      right: -200px;
+    }
+
+    @media screen and (max-width: 884px) {
+      display: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 900px;
+    color: var(--white);
+
+    @media screen and (max-width: 1366px) {
+      justify-content: space-evenly;
+    }
+
+    @media screen and (max-width: 884px) {
+      justify-content: flex-end;
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 450px) {
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    &__textContainer {
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+
+      &-logo {
+        width: 208px;
+
+        @media screen and (max-width: 768px) {
+          margin-top: 36px;
+        }
+
+        @media screen and (max-width: 450px) {
+          width: 161px;
+        }
+      }
+
+      h1 {
+        font-family: "Montserrat";
+        font-size: 70px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 85px;
+        letter-spacing: 0px;
+        text-align: left;
+        width: 400px;
+        margin: 32px 0 24px 0;
+
+        @media screen and (max-width: 768px) {
+          margin: 8px 0 16px 0;
+        }
+
+        @media screen and (max-width: 450px) {
+          font-size: 40px;
+          line-height: 49px;
+          width: 251px;
+          margin: 16px 0 30px 0;
+        }
+      }
+
+      a {
+        text-align: left;
+      }
+    }
+
+    &-plantPerson {
+      width: 335px;
+      z-index: 0;
+
+      @media screen and (max-width: 768px) {
+        content: url("/images/hero/mobile/mobile-plantperson.png");
+        width: 500px;
+      }
+
+      @media screen and (max-width: 450px) {
+        width: 276px;
+      }
+    }
+  }
+}
