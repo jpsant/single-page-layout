@@ -9,8 +9,10 @@ import noSun from './images/icons/no-sun.svg';
 import pet from './images/icons/pet.svg';
 import toxic from './images/icons/toxic.svg';
 import noResults from './images/illustrations/no-results.png';
+import arrowUp from './images/icons/arrow-up.svg';
 
 document.getElementById('form').addEventListener('change', toggleResults);
+document.getElementById('bottomArrow').addEventListener('click', () => window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'}) );
 const results = document.getElementById('resultsContainer');
 const sunSelect = document.getElementById('sun');
 const waterSelect = document.getElementById('water');
@@ -22,7 +24,7 @@ async function toggleResults() {
   if (sunSelect.value === '' || waterSelect.value === '' || petsSelect.value === '') {
     return;
   }
-  const loadingSpinner = `<img src='${loader}' width='160' height='160'>`
+  const loadingSpinner = `<img class="loadingSpinner" src='${loader}' width='160' height='160'>`
   results.innerHTML = loadingSpinner;
   await fetch(`https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${sunSelect.value}&water=${waterSelect.value}&pets=${petsSelect.value}`).then(function(response) {
     return response.json();
@@ -76,7 +78,7 @@ function generateCards(data) {
         <div class="favorite__description">
           <h3 class="favorite__description-price">$${el.price}</h3>
           <div class="favorite__description__icons">
-            ${el.toxicity ? '<img src="' + toxic + '" alt="Toxicity icon">' : '<img src="' + pet + '" alt="Pet icon">'}
+            <img src="${el.toxicity ? toxic : pet}" alt="${el.toxicity ? 'Toxicity icon' : 'Pet icon'}" />
             <img src="${sun[el.sun]}" alt="Sun icon">
             <img src="${watering[el.water]}" alt="Watering level icon">
           </div>
@@ -94,7 +96,7 @@ function generateCards(data) {
         <div class="item__description">
           <h3 class="item__description-price">$${el.price}</h3>
           <div class="item__description__icons">
-            ${el.toxicity ? '<img src="' + toxic + '" alt="Toxicity icon">' : '<img src="' + pet + '" alt="Pet icon">'}
+            <img src="${el.toxicity ? toxic : pet}" alt="${el.toxicity ? 'Toxicity icon' : 'Pet icon'}" />
             <img src="${sun[el.sun]}" alt="Sun icon">
             <img src="${watering[el.water]}" alt="Watering level icon">
           </div>
@@ -106,17 +108,22 @@ function generateCards(data) {
 };
 
 function renderCards(data) {
-  let element = `
+  let cards = `
   <div class="resultsSection__container__foundResults">
     ${generateHeading()}
     <div class="resultsSection__container__foundResults__resultsContainer">
       ${generateCards(data)}
     </div>
+    <a id="returnButton" class="resultsSection__container__foundResults__resultsContainer-button" href="#">
+      <img src="${arrowUp}" />
+      <p>back to the top</p>
+    </a>
   </div>
   `;
-  let plants = HTMLElementParser(element);
+  let parsedCards = HTMLElementParser(cards);
   results.innerHTML = '';
-  results.appendChild(plants.body.firstElementChild);
+  results.appendChild(parsedCards.body.firstElementChild);
+  document.getElementById('returnButton').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}) );
 };
 
 function HTMLElementParser(element) {
