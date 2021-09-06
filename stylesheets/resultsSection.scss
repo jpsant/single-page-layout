@@ -12,10 +12,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
 
-    @media screen and (max-width: 900px) {
+    @include respond-to('lg') {
       padding: 0 27px;
-      overflow-x: hidden;
     }
 
     &__noResults {
@@ -24,11 +24,11 @@
       display: flex;
       justify-content: flex-start;
 
-      @media screen and (max-width: 768px) {
+      @include respond-to('md') {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 35px;
+        margin: 16px 0 16px 0;
       }
 
       &__textContainer {
@@ -36,8 +36,8 @@
         flex-direction: column;
         text-align: left;
         margin: 60px 110px 60px 0;
-
-        @media screen and (max-width: 768px) {
+        
+        @include respond-to('md') {
           margin: 0 0 37px 0;
         }
 
@@ -55,11 +55,11 @@
           width: 219px;
           text-align: justify;
 
-          @media screen and (max-width: 768px) {
+          @include respond-to('md') {
             width: 359px;
           }
 
-          @media screen and (max-width: 450px) {
+          @include respond-to('sm') {
             width: 100%;
           }
         }
@@ -69,7 +69,7 @@
         width: 104.7px;
         margin-left: 110px;
 
-        @media screen and (max-width: 768px) {
+        @include respond-to('md') {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -100,7 +100,7 @@
           margin: 5px 0 30px 0;
           color: var(--dark);
 
-          @media screen and (max-width: 450px) {
+          @include respond-to('sm') {
             font-size: 40px;
             line-height: 49px;
             margin: 5px 0 16px 0;
@@ -114,21 +114,58 @@
         column-gap: 25px;
         row-gap: 20px;
 
-        @media screen and (max-width: 900px) {
+        @include respond-to('lg') {
           grid-template-columns: repeat(2, 1fr);
         }
 
-        @media screen and (max-width: 768px) {
-          grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+        @include respond-to('md') {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         }
 
-        @media screen and (max-width: 450px) {
+        @include respond-to('sm') {
           padding: 20px 20px 20px 0;
           display: flex;
           overflow-x: scroll; 
           overflow-y:hidden;
           width: 90vw;
           white-space: nowrap;
+        }
+
+        &-button {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s;
+          width: 99.8%;
+          background-color: transparent;
+          border-radius: 25px;
+          border: 1px solid var(--button);
+          margin-top: 50px;
+          text-decoration: none;
+
+          img {
+            margin-right: 17px;
+          }
+
+          p {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+            color: var(--button);
+            transition: all 0.3s;
+          }
+        }
+
+        &-button:hover {
+          background-color: var(--button);
+          
+          p {
+            color: var(--white);
+            font-weight: 500;
+          }
         }
       }
     }
@@ -147,12 +184,12 @@
   background-color: var(--white);
   color: var(--ascent);
 
-  @media screen and (max-width: 320px) {
-    width: 85%;
+  @include respond-to('sm') {
+    width: 85vw;
   }
 
-  @media screen and (max-width: 450px) {
-    width: 85vw;
+  @include respond-to('xm') {
+    width: 85%;
   }
 
   &-image {
@@ -164,14 +201,14 @@
     img {
       width: -webkit-fill-available;
 
-      @media screen and (max-width: 900px) {
+      @include respond-to('lg') {
         width: -webkit-fill-available;
         max-width: 300px;
         max-height: 300px;
         height: auto;
       }
 
-      @media screen and (max-width: 450px) {
+      @include respond-to('sm') {
         min-width: 241px;
         width: 50%;
         height: 316px;
@@ -199,7 +236,8 @@
     align-items: center;
 
     &-price {
-      @media screen and (max-width: 450px) {
+
+      @include respond-to('sm') {
         font-size: 16px;
       }
     }
@@ -219,12 +257,12 @@
   color: var(--ascent);
   background-color: var(--white);
 
-  @media screen and (max-width: 768px) {
+  @include respond-to('md') {
     grid-column: auto;
     grid-row: auto;
   }
 
-  @media screen and (max-width: 450px) {
+  @include respond-to('sm') {
     width: 85%;
   }
   
@@ -257,7 +295,7 @@
     font-size: 35px;
     line-height: 37px;
 
-    @media screen and (max-width: 768px) {
+    @include respond-to('md') {
       font-size: 16px;
     }
   }
@@ -266,7 +304,8 @@
     width: fit-content;
 
     img {
-      @media screen and (max-width: 450px) {
+
+      @include respond-to('sm') {
         width: 50%;
         min-width: 241px;
         height: 316px;
@@ -289,7 +328,7 @@
       font-size: 24px;
       line-height: 28px;
 
-      @media screen and (max-width: 450px) {
+      @include respond-to('sm') {
         font-size: 16px;
       }
     }
@@ -303,7 +342,7 @@
       img {
         transform: scale(1.6);
 
-        @media screen and (max-width: 768px) {
+        @include respond-to('md') {
           transform: scale(1);
         }
       }

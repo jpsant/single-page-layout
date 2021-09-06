@@ -8,11 +8,11 @@
   position: relative;
   overflow: hidden;
 
-  @media screen and (max-width: 768px) {
+  @include respond-to('md') {
     height: 100%;
   }
 
-  @media screen and (max-width: 450px) {
+  @include respond-to('sm') {
     height: 593px;
   }
 
@@ -21,11 +21,11 @@
     left: 0;
     width: 862px;
 
-    @media screen and (max-width: 1366px) {
+    @include respond-to('xl') {
       left: -340px;
     }
 
-    @media screen and (max-width: 768px) {
+    @include respond-to('md') {
       left: 0;
       top: -390px;
       content: url("/images/hero/mobile/mobile-leaves.png");
@@ -33,11 +33,11 @@
       width: 100%;
     }
 
-    @media screen and (max-width: 450px) {
+    @include respond-to('sm') {
       top: -100px;
     }
 
-    @media screen and (max-width: 320px) {
+    @include respond-to('xm') {
       top: 0;
     }
   }
@@ -48,11 +48,11 @@
     width: 361px;
     z-index: 1;
 
-    @media screen and (max-width: 1366px) {
+    @include respond-to('xl') {
       right: -200px;
     }
 
-    @media screen and (max-width: 884px) {
+    @include respond-to('lg') {
       display: none;
     }
   }
@@ -64,21 +64,17 @@
     width: 900px;
     color: var(--white);
 
-    @media screen and (max-width: 1366px) {
-      justify-content: space-between;
-    }
-
-    @media screen and (max-width: 884px) {
+    @include respond-to('lg') {
       justify-content: flex-end;
     }
 
-    @media screen and (max-width: 768px) {
+    @include respond-to('md') {
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
 
-    @media screen and (max-width: 450px) {
+    @include respond-to('sm') {
       justify-content: space-between;
       height: 100%;
     }
@@ -91,11 +87,11 @@
       &-logo {
         width: 208px;
 
-        @media screen and (max-width: 768px) {
+        @include respond-to('md') {
           margin-top: 36px;
         }
 
-        @media screen and (max-width: 450px) {
+        @include respond-to('sm') {
           width: 161px;
         }
       }
@@ -111,11 +107,11 @@
         width: 400px;
         margin: 32px 0 24px 0;
 
-        @media screen and (max-width: 768px) {
+        @include respond-to('md') {
           margin: 8px 0 16px 0;
         }
 
-        @media screen and (max-width: 450px) {
+        @include respond-to('sm') {
           font-size: 40px;
           line-height: 49px;
           width: 251px;
@@ -125,6 +121,9 @@
 
       a {
         text-align: left;
+        -moz-animation: bounce 2s infinite;
+        -webkit-animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
       }
     }
 
@@ -132,14 +131,26 @@
       width: 335px;
       z-index: 0;
 
-      @media screen and (max-width: 768px) {
+      @include respond-to('md') {
         content: url("/images/hero/mobile/mobile-plantperson.png");
         width: 500px;
       }
 
-      @media screen and (max-width: 450px) {
+      @include respond-to('sm') {
         width: 276px;
       }
     }
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-5px);
   }
 }
