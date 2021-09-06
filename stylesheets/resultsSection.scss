@@ -118,6 +118,10 @@
           grid-template-columns: repeat(2, 1fr);
         }
 
+        @media screen and (max-width: 768px) {
+          grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+        }
+
         @media screen and (max-width: 450px) {
           padding: 20px 20px 20px 0;
           display: flex;
@@ -143,12 +147,19 @@
   background-color: var(--white);
   color: var(--ascent);
 
+  @media screen and (max-width: 320px) {
+    width: 85%;
+  }
+
   @media screen and (max-width: 450px) {
-    width: 95vw;
+    width: 85vw;
   }
 
   &-image {
     width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img {
       width: -webkit-fill-available;
@@ -156,11 +167,13 @@
       @media screen and (max-width: 900px) {
         width: -webkit-fill-available;
         max-width: 300px;
+        max-height: 300px;
         height: auto;
       }
 
       @media screen and (max-width: 450px) {
         min-width: 241px;
+        width: 50%;
         height: 316px;
       }
     }
@@ -184,6 +197,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    &-price {
+      @media screen and (max-width: 450px) {
+        font-size: 16px;
+      }
+    }
   }
 }
 
@@ -200,8 +219,13 @@
   color: var(--ascent);
   background-color: var(--white);
 
+  @media screen and (max-width: 768px) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
   @media screen and (max-width: 450px) {
-    width: 95vw;
+    width: 85%;
   }
   
   &__tag {
@@ -233,7 +257,7 @@
     font-size: 35px;
     line-height: 37px;
 
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 768px) {
       font-size: 16px;
     }
   }
@@ -243,6 +267,7 @@
 
     img {
       @media screen and (max-width: 450px) {
+        width: 50%;
         min-width: 241px;
         height: 316px;
       }
@@ -263,6 +288,10 @@
     &-price {
       font-size: 24px;
       line-height: 28px;
+
+      @media screen and (max-width: 450px) {
+        font-size: 16px;
+      }
     }
 
     &__icons {
@@ -274,7 +303,7 @@
       img {
         transform: scale(1.6);
 
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 768px) {
           transform: scale(1);
         }
       }

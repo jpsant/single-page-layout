@@ -71,13 +71,15 @@ function generateCards(data) {
       <div class="favorite-image">
         <img width="241" height="316" src="${el.url}" alt="${el.name}">
       </div>
-      <h3 class="favorite-name">${el.name}</h3>
-      <div class="favorite__description">
-        <h3 class="favorite__description-price">$${el.price}</h3>
-        <div class="favorite__description__icons">
-          ${el.toxicity ? '<img src="' + toxic + '" alt="Toxicity icon">' : '<img src="' + pet + '" alt="Pet icon">'}
-          <img src="${sun[el.sun]}" alt="Sun icon">
-          <img src="${watering[el.water]}" alt="Watering level icon">
+      <div style="width: 100%">
+        <h3 class="favorite-name">${el.name}</h3>
+        <div class="favorite__description">
+          <h3 class="favorite__description-price">$${el.price}</h3>
+          <div class="favorite__description__icons">
+            ${el.toxicity ? '<img src="' + toxic + '" alt="Toxicity icon">' : '<img src="' + pet + '" alt="Pet icon">'}
+            <img src="${sun[el.sun]}" alt="Sun icon">
+            <img src="${watering[el.water]}" alt="Watering level icon">
+          </div>
         </div>
       </div>
     </div>
@@ -87,13 +89,15 @@ function generateCards(data) {
       <div class="item-image">
         <img width="150" height="150" src="${el.url}" alt="${el.name}">
       </div>
-      <h3 class="item-name">${el.name}</h3>
-      <div class="item__description">
-        <h3 class="item__description-price">$${el.price}</h3>
-        <div class="item__description__icons">
-          ${el.toxicity ? '<img src="' + toxic + '" alt="Toxicity icon">' : '<img src="' + pet + '" alt="Pet icon">'}
-          <img src="${sun[el.sun]}" alt="Sun icon">
-          <img src="${watering[el.water]}" alt="Watering level icon">
+      <div style="width: 100%">
+        <h3 class="item-name">${el.name}</h3>
+        <div class="item__description">
+          <h3 class="item__description-price">$${el.price}</h3>
+          <div class="item__description__icons">
+            ${el.toxicity ? '<img src="' + toxic + '" alt="Toxicity icon">' : '<img src="' + pet + '" alt="Pet icon">'}
+            <img src="${sun[el.sun]}" alt="Sun icon">
+            <img src="${watering[el.water]}" alt="Watering level icon">
+          </div>
         </div>
       </div>
     </div>
