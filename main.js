@@ -2,9 +2,9 @@ import errorMessage from './scripts/HTML/generateErrorMessage';
 import plantCard from './scripts/HTML/generatePlantCard';
 import generateHeading from './scripts/HTML/generateHeading';
 import HTMLElementParser from './scripts/htmlElementParser';
-
-import loader from './images/loader/leaf-loader.svg';
-import arrowUp from './images/icons/arrow-up.svg';
+import loadingSpinner from './scripts/HTML/generateLoadingSpinner';
+import returnButton from './scripts/HTML/generateReturnButton';
+import insertHTML from './scripts/insertHTML';
 
 document.getElementById('form').addEventListener('change', fetchData);
 document.getElementById('bottomArrow').addEventListener('click', () => window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'}) );
@@ -14,20 +14,15 @@ const sunSelect = document.getElementById('sun');
 const waterSelect = document.getElementById('water');
 const petsSelect = document.getElementById('pets');
 
-function insertHTML(element) {
-  results.innerHTML = '';
-  results.appendChild(element);
-};
-
 function generateErrorMessage() {
   const renderedErrorMessage = errorMessage();
-  insertHTML(renderedErrorMessage);
+  insertHTML(results, renderedErrorMessage);
 };
 
 function generateLoadingSpinner() {
-  const loadingSpinner = `<img class="loadingSpinner" src='${loader}' width='160' height='160'>`;
-  const parsedElement = HTMLElementParser(loadingSpinner);
-  insertHTML(parsedElement);
+  const spinner = loadingSpinner();
+  const parsedElement = HTMLElementParser(spinner);
+  insertHTML(results, parsedElement);
 };
 
 function generateCards(data) {
@@ -47,10 +42,8 @@ async function fetchData() {
   await fetch(`https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${sunSelect.value}&water=${waterSelect.value}&pets=${petsSelect.value}`).then(function(response) {
     return response.json();
   }).then(function(data) {
-    console.log(data);
     renderCards(data);
-  }).catch(function(err) {
-    console.log(err);
+  }).catch(function() {
     generateErrorMessage();
   });
 };
@@ -62,13 +55,10 @@ function renderCards(data) {
     <div class="resultsSection__container__foundResults__resultsContainer">
       ${generateCards(data)}
     </div>
-    <a id="returnButton" class="resultsSection__container__foundResults__resultsContainer-button" href="#">
-      <img src="${arrowUp}" />
-      <p>back to the top</p>
-    </a>
+    ${returnButton()}
   </div>
   `;
   let parsedCards = HTMLElementParser(cards);
-  insertHTML(parsedCards);
+  insertHTML(results, parsedCards);
   document.getElementById('returnButton').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}) );
 };
