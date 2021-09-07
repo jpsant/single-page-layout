@@ -44,6 +44,12 @@ select option {
   border: none;
 }
 
+select:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
 .loadingSpinner {
   margin: 32px 0;
 }
