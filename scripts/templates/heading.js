@@ -1,6 +1,6 @@
 import pick from '../../images/illustrations/pick.png';
 
-export default function generateHeading() {
+const heading = () => {
   return `
     <div class="resultsSection__container__foundResults__heading">
       <img src="${pick}" alt="Pickig leaf Illustration">
@@ -8,3 +8,5 @@ export default function generateHeading() {
     </div>
   `;
 };
+
+export default heading;

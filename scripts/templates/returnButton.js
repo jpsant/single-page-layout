@@ -1,6 +1,6 @@
 import arrowUp from '../../images/icons/arrow-up.svg';
 
-export default function generateReturnButton() {
+const returnButton = () => {
   return `
     <a id="returnButton" class="resultsSection__container__foundResults__resultsContainer-button" href="#">
       <img src="${arrowUp}" />
@@ -8,3 +8,4 @@ export default function generateReturnButton() {
     </a>
   `;
 };
+export default returnButton;

@@ -9,17 +9,32 @@ import noSun from '../../images/icons/no-sun.svg';
 import pet from '../../images/icons/pet.svg';
 import toxic from '../../images/icons/toxic.svg';
 
-const watering = {'rarely': rarely, 'daily': daily, 'regularly': regularly};
-const sun = {'high': highSun, 'low': lowSun, 'no': noSun};
+const watering = { 'rarely': rarely, 'daily': daily, 'regularly': regularly };
+const sun = { 'high': highSun, 'low': lowSun, 'no': noSun };
 
-export default function generateItemCard(el, className) {
-  let itemCard = `
+const cardType = {
+  FAVORITE: 'favorite',
+  REGULAR: 'regular',
+};
+
+const favoriteDimensions = {
+  width: '241',
+  height: '316'
+}
+
+const regularDimensions = {
+  width: '150',
+  height: '150'
+}
+
+const plantCard = (el, className) => {
+  return `
     <div class="${className}">
       <div class="${className}__tag">
         <h3 class="${className}__tag-text">✨ Staff favorite</h3>
       </div>
       <div class="${className}-image">
-        <img width="${className === 'favorite' ? '241' : '150' }" height="${className === 'favorite' ? '316' : '150' }" src="${el.url}" alt="${el.name}">
+        <img width="${className === 'favorite' ? favoriteDimensions.width : regularDimensions.width}" height="${className === 'favorite' ? favoriteDimensions.height : regularDimensions.height}" src="${el.url}" alt="${el.name}">
       </div>
       <div style="width: 100%">
         <h3 class="${className}-name">${el.name}</h3>
@@ -34,5 +49,6 @@ export default function generateItemCard(el, className) {
       </div>
     </div>
   `;
-  return itemCard;
 };
+
+export { plantCard, cardType };

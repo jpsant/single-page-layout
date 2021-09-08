@@ -1,9 +1,9 @@
-import HTMLElementParser from '../htmlElementParser';
+import { htmlElementParser, insertHTML } from '../htmlUtils';
 
 import noResults from '../../images/illustrations/no-results.png';
 
-export default function generateErrorMessage() {
-  let errorMessage = `
+const createErrorMessage = () => {
+  return `
     <div id="noResults" class="resultsSection__container__noResults">
       <div class="resultsSection__container__noResults__textContainer">
         <h1>Sorry, no results found :(</h1>
@@ -14,5 +14,12 @@ export default function generateErrorMessage() {
       </div>
     </div>
   `;
-  return HTMLElementParser(errorMessage);
 };
+
+const insertErrorMessage = (container) => {
+  const renderedErrorMessage = createErrorMessage();
+  const parsedElement = htmlElementParser(renderedErrorMessage);
+  insertHTML(container, parsedElement);
+};
+
+export default insertErrorMessage;
