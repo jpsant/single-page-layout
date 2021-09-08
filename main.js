@@ -24,10 +24,9 @@ async function loadData() {
   try {
     const url = `${baseURL}?sun=${sunSelect.value}&water=${waterSelect.value}&pets=${petsSelect.value}`;
     const data = await fetchData(url);
-    renderCards(data);
-  } catch (error) {
-    insertErrorMessage(results);
-    throw new Error(error);
+    return renderCards(data);
+  } catch {
+    return insertErrorMessage(results);
   };
 };
 
@@ -43,7 +42,7 @@ function renderCards(data) {
   `;
   let parsedCards = htmlElementParser(cards);
   insertHTML(results, parsedCards);
-  document.getElementById('returnButton').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  return document.getElementById('returnButton').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 };
 
 function plantCards(data) {
