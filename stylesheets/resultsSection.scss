@@ -41,14 +41,14 @@
           margin: 0 0 37px 0;
         }
 
-        h1 {
+        &-title {
           font-size: 45px;
           font-weight: 700;
           line-height: 55px;
           margin: 6px 0;
         }
 
-        h3 {
+        &-description {
           font-size: 16px;
           font-weight: 400;
           line-height: 27px;
@@ -89,11 +89,11 @@
         display: inherit;
         flex-direction: inherit;
 
-        img {
+        &-image {
           width: 158px;
         }
 
-        h1 {
+        &-title {
           font-weight: bold;
           font-size: 55px;
           line-height: 67px;
@@ -131,7 +131,7 @@
           white-space: nowrap;
         }
 
-        &-button {
+        &__button {
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -148,11 +148,11 @@
             margin-top: 30px;
           }
 
-          img {
+          &-image {
             margin-right: 17px;
           }
 
-          p {
+          &-text {
             font-family: "Montserrat";
             font-style: normal;
             font-weight: 300;
@@ -163,7 +163,7 @@
           }
         }
 
-        &-button:hover {
+        &__button:hover {
           background-color: var(--button);
 
           p {
@@ -203,13 +203,13 @@
     width: 85%;
   }
 
-  &-image {
+  &__imageContainer {
     width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    img {
+    &-image {
       width: -webkit-fill-available;
 
       @include respond-to("lg") {
@@ -314,10 +314,10 @@
     }
   }
 
-  &-image {
+  &__imageContainer {
     width: fit-content;
 
-    img {
+    &-image {
       @include respond-to("sm") {
         min-width: 241px;
         width: 50%;
