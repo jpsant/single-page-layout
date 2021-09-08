@@ -1,51 +1,34 @@
-import errorMessage from './scripts/HTML/generateErrorMessage';
-import plantCard from './scripts/HTML/generatePlantCard';
-import generateHeading from './scripts/HTML/generateHeading';
-import HTMLElementParser from './scripts/htmlElementParser';
-import loadingSpinner from './scripts/HTML/generateLoadingSpinner';
-import returnButton from './scripts/HTML/generateReturnButton';
-import insertHTML from './scripts/insertHTML';
+import { htmlElementParser, insertHTML } from './scripts/htmlUtils';
+import { plantCard, cardType } from './scripts/templates/plantCard';
+import insertErrorMessage from './scripts/templates/errorMessage';
+import generateHeading from './scripts/templates/heading';
+import insertLoadingSpinner from './scripts/templates/loadingSpinner';
+import returnButton from './scripts/templates/returnButton';
+import fetchData from './scripts/fetchData';
 
-document.getElementById('form').addEventListener('change', fetchData);
-document.getElementById('bottomArrow').addEventListener('click', () => window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'}) );
+document.getElementById('form').addEventListener('change', loadData);
+document.getElementById('bottomArrow').addEventListener('click', () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }));
 
 const results = document.getElementById('resultsContainer');
 const sunSelect = document.getElementById('sun');
 const waterSelect = document.getElementById('water');
 const petsSelect = document.getElementById('pets');
 
-function generateErrorMessage() {
-  const renderedErrorMessage = errorMessage();
-  insertHTML(results, renderedErrorMessage);
-};
+const baseURL = 'https://front-br-challenges.web.app/api/v2/green-thumb/';
 
-function generateLoadingSpinner() {
-  const spinner = loadingSpinner();
-  const parsedElement = HTMLElementParser(spinner);
-  insertHTML(results, parsedElement);
-};
-
-function generateCards(data) {
-  let favorite = '';
-  let regular = '';
-  data.map(function (el) {
-    return el.staff_favorite ? favorite += plantCard(el, 'favorite') : regular += plantCard(el, 'item');
-  });
-  return favorite += regular;
-};
-
-async function fetchData() {
+async function loadData() {
   if (sunSelect.value === '' || waterSelect.value === '' || petsSelect.value === '') {
     return;
   }
-  generateLoadingSpinner();
-  await fetch(`https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${sunSelect.value}&water=${waterSelect.value}&pets=${petsSelect.value}`).then(function(response) {
-    return response.json();
-  }).then(function(data) {
+  insertLoadingSpinner(results);
+  try {
+    const url = `${baseURL}?sun=${sunSelect.value}&water=${waterSelect.value}&pets=${petsSelect.value}`;
+    const data = await fetchData(url);
     renderCards(data);
-  }).catch(function() {
-    generateErrorMessage();
-  });
+  } catch (error) {
+    insertErrorMessage(results);
+    throw new Error(error);
+  };
 };
 
 function renderCards(data) {
@@ -58,7 +41,16 @@ function renderCards(data) {
     ${returnButton()}
   </div>
   `;
-  let parsedCards = HTMLElementParser(cards);
+  let parsedCards = htmlElementParser(cards);
   insertHTML(results, parsedCards);
-  document.getElementById('returnButton').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}) );
+  document.getElementById('returnButton').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+};
+
+function generateCards(data) {
+  let favorite = '';
+  let regular = '';
+  data.map(function (el) {
+    return el.staff_favorite ? favorite += plantCard(el, cardType.FAVORITE) : regular += plantCard(el, cardType.REGULAR);
+  });
+  return favorite += regular;
 };
