@@ -30,11 +30,11 @@
       color: var(--gray);
       width: 221px;
 
-      img {
+      &-image {
         width: 75px;
       }
 
-      p {
+      &-text {
         font-family: "Montserrat";
         font-size: 14px;
         font-weight: 300;
@@ -59,13 +59,13 @@
         margin: 35px 0 60px 0;
       }
 
-      img {
+      &-image {
         width: 103px;
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
       }
 
-      p {
+      &-text {
         font-family: "Montserrat";
         font-size: 14px;
         font-weight: 300;
@@ -86,11 +86,11 @@
       color: var(--gray);
       width: 221px;
 
-      img {
+      &-image {
         width: 75px;
       }
 
-      p {
+      &-text {
         font-family: "Montserrat";
         font-size: 14px;
         font-weight: 300;

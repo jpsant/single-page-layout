@@ -33,8 +33,8 @@ const plantCard = (el, className) => {
       <div class="${className}__tag">
         <h3 class="${className}__tag-text">✨ Staff favorite</h3>
       </div>
-      <div class="${className}-image">
-        <img width="${className === 'favorite' ? favoriteDimensions.width : regularDimensions.width}" height="${className === 'favorite' ? favoriteDimensions.height : regularDimensions.height}" src="${el.url}" alt="${el.name}">
+      <div class="${className}__imageContainer">
+        <img class="${className}__imageContainer-image" width="${className === 'favorite' ? favoriteDimensions.width : regularDimensions.width}" height="${className === 'favorite' ? favoriteDimensions.height : regularDimensions.height}" src="${el.url}" alt="${el.name}">
       </div>
       <div style="width: 100%">
         <h3 class="${className}-name">${el.name}</h3>
