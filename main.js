@@ -1,8 +1,8 @@
 import { htmlElementParser, insertHTML } from './scripts/htmlUtils';
 import { plantCard, cardType } from './scripts/templates/plantCard';
 import insertErrorMessage from './scripts/templates/errorMessage';
-import generateHeading from './scripts/templates/heading';
-import insertLoadingSpinner from './scripts/templates/loadingSpinner';
+import heading from './scripts/templates/heading';
+import loadingSpinner from './scripts/templates/loadingSpinner';
 import returnButton from './scripts/templates/returnButton';
 import fetchData from './scripts/fetchData';
 
@@ -20,7 +20,7 @@ async function loadData() {
   if (sunSelect.value === '' || waterSelect.value === '' || petsSelect.value === '') {
     return;
   }
-  insertLoadingSpinner(results);
+  loadingSpinner(results);
   try {
     const url = `${baseURL}?sun=${sunSelect.value}&water=${waterSelect.value}&pets=${petsSelect.value}`;
     const data = await fetchData(url);
@@ -34,9 +34,9 @@ async function loadData() {
 function renderCards(data) {
   let cards = `
   <div class="resultsSection__container__foundResults">
-    ${generateHeading()}
+    ${heading()}
     <div class="resultsSection__container__foundResults__resultsContainer">
-      ${generateCards(data)}
+      ${plantCards(data)}
     </div>
     ${returnButton()}
   </div>
@@ -46,7 +46,7 @@ function renderCards(data) {
   document.getElementById('returnButton').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 };
 
-function generateCards(data) {
+function plantCards(data) {
   let favorite = '';
   let regular = '';
   data.map(function (el) {
