@@ -1,0 +1,160 @@
+.heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--green);
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-to("md") {
+    height: 100%;
+  }
+
+  @include respond-to("sm") {
+    height: 593px;
+  }
+
+  &-leftLeaves {
+    position: absolute;
+    left: 0;
+    width: 862px;
+
+    @include respond-to("xl") {
+      left: -340px;
+    }
+
+    @include respond-to("md") {
+      left: 0;
+      top: -390px;
+      content: url("/images/hero/mobile/mobile-leaves.png");
+      z-index: 1;
+      width: 100%;
+    }
+
+    @include respond-to("sm") {
+      top: -100px;
+    }
+
+    @include respond-to("xm") {
+      top: 0;
+    }
+  }
+
+  &-rightLeaves {
+    position: absolute;
+    right: 0;
+    width: 361px;
+    z-index: 1;
+
+    @include respond-to("xl") {
+      right: -200px;
+    }
+
+    @include respond-to("lg") {
+      display: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 900px;
+    color: var(--white);
+
+    @include respond-to("lg") {
+      justify-content: flex-end;
+    }
+
+    @include respond-to("md") {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include respond-to("sm") {
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    &__textContainer {
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+
+      &-logo {
+        width: 208px;
+
+        @include respond-to("md") {
+          margin-top: 36px;
+        }
+
+        @include respond-to("sm") {
+          width: 161px;
+        }
+      }
+
+      h1 {
+        font-family: "Montserrat";
+        font-size: 70px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 85px;
+        letter-spacing: 0px;
+        text-align: left;
+        width: 400px;
+        margin: 32px 0 24px 0;
+
+        @include respond-to("md") {
+          margin: 8px 0 16px 0;
+        }
+
+        @include respond-to("sm") {
+          font-size: 40px;
+          line-height: 49px;
+          width: 251px;
+          margin: 16px 0 30px 0;
+        }
+      }
+
+      a {
+        text-align: left;
+        -moz-animation: bounce 2s infinite;
+        -webkit-animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
+      }
+    }
+
+    &-plantPerson {
+      width: 335px;
+      z-index: 0;
+
+      @include respond-to("md") {
+        content: url("/images/hero/mobile/mobile-plantperson.png");
+        width: 500px;
+      }
+
+      @include respond-to("sm") {
+        width: 276px;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}

@@ -1,11 +1,17 @@
+// PROJECT FOUNDATIONS
 @import "./foundations/colors.scss";
 @import "./foundations/fonts.scss";
 @import "./foundations/mixins.scss";
 
+// PROJECT STYLESHEETS
+@import "./stylesheets/heroSection.scss";
+@import "./stylesheets/formSection.scss";
+@import "./stylesheets/resultsSection.scss";
+
 html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,7 +24,18 @@ h1 {
   margin: 0;
 }
 
+a {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 select {
+  background: url("./images/icons/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 95%;
+  position: relative;
   font-family: "Montserrat";
   font-size: 14px;
   font-weight: 300;
@@ -26,11 +43,14 @@ select {
   letter-spacing: 0px;
   text-align: left;
   width: 219px;
-  padding: 8px 0 10px 16px;
+  padding: 6px 0 6px 16px;
   background-color: transparent;
   border-radius: 19px;
   border-color: var(--gray-variation);
   color: var(--gray-variation);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 select option {
@@ -38,283 +58,12 @@ select option {
   border: none;
 }
 
-.heroSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: var(--green);
-  height: 500px;
-  position: relative;
-
-  @media screen and (max-width: 768px) {
-    height: 100%;
-  }
-
-  @media screen and (max-width: 450px) {
-    height: 593px;
-  }
-
-  &-leftLeaves {
-    position: absolute;
-    left: 0;
-    width: 862px;
-
-    @media screen and (max-width: 1366px) {
-      left: -340px;
-    }
-
-    @media screen and (max-width: 768px) {
-      left: 0;
-      top: -390px;
-      content: url('/images/hero/mobile/mobile-leaves.png');
-      z-index: 1;
-      width: 100%;
-    }
-
-    @media screen and (max-width: 450px) {
-      top: -100px;
-    }
-
-    @media screen and (max-width: 320px) {
-      top: 0;
-    }
-  }
-
-  &-rightLeaves {
-    position: absolute;
-    right: 0;
-    width: 361px;
-    z-index: 1;
-
-    @media screen and (max-width: 1366px) {
-      right: -200px;
-    }
-
-    @media screen and (max-width: 884px) {
-      display: none;
-    }
-  }
-
-  &__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 900px;
-    color: var(--white);
-
-    @media screen and (max-width: 1366px) {
-      justify-content: space-evenly;
-    }
-
-    @media screen and (max-width: 884px) {
-      justify-content: flex-end;
-    }
-
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media screen and (max-width: 450px) {
-      justify-content: space-between;
-      height: 100%;
-    }
-
-    &__textContainer {
-      display: flex;
-      flex-direction: column;
-      z-index: 1;
-
-      &-logo {
-        width: 208px;
-        margin-top: 36px;
-
-        @media screen and (max-width: 450px) {
-          width: 161px;
-        }
-      }
-
-      h1 {
-        font-family: "Montserrat";
-        font-size: 70px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 85px;
-        letter-spacing: 0px;
-        text-align: left;
-        width: 400px;
-
-        @media screen and (max-width: 768px) {
-          margin: 8px 0 16px 0;
-        }
-
-        @media screen and (max-width: 450px) {
-          font-size: 40px;
-          line-height: 49px;
-          width: 251px;
-          margin: 16px 0 30px 0;
-        }
-      }
-
-      a {
-        text-align: left;
-      }
-    }
-
-    &-plantPerson {
-      width: 335px;
-      z-index: 0;
-
-      @media screen and (max-width: 768px) {
-        content: url('/images/hero/mobile/mobile-plantperson.png');
-        width: 500px;
-      }
-
-      @media screen and (max-width: 450px) {
-        width: 276px;
-      }
-    }
-  }
+select:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.formSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--white);
-  height: 299px;
-  display: none;
-
-  &__container {
-    width: 900px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-    &__sunContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      color: var(--gray);
-      width: 221px;
-
-      img {
-        width: 75px;
-      }
-
-      p {
-        font-family: "Montserrat";
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 22px;
-        text-align: left;
-
-        span {
-          font-weight: 700;
-        }
-      }
-    }
-
-    &__waterContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      color: var(--gray);
-      width: 221px;
-
-      img {
-        width: 103px;
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-      }
-
-      p {
-        font-family: "Montserrat";
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 22px;
-        text-align: left;
-
-        span {
-          font-weight: 700;
-        }
-      }
-    }
-
-    &__petsContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      color: var(--gray);
-      width: 221px;
-
-      img {
-        width: 75px;
-      }
-
-      p {
-        font-family: "Montserrat";
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 22px;
-        text-align: left;
-
-        span {
-          font-weight: 700;
-        }
-      }
-    }
-  }
-}
-
-.resultsSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--white-variation);
-  color: var(--disabled);
-  height: 324px;
-  display: none;
-
-  &__container {
-    width: 900px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-
-    &__textContainer {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      margin-right: 110px;
-
-      h1 {
-        font-size: 45px;
-        font-weight: 700;
-        line-height: 55px;
-        margin: 6px 0;
-      }
-
-      h3 {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 27px;
-        width: 219px;
-        text-align: justify;
-      }
-    }
-
-    &__imgContainer {
-      width: 104.7px;
-      margin-left: 110px;
-    }
-  }
+.loadingSpinner {
+  margin: 32px 0;
 }
