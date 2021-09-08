@@ -24,7 +24,18 @@ h1 {
   margin: 0;
 }
 
+a {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 select {
+  background: url("./images/icons/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 95%;
+  position: relative;
   font-family: "Montserrat";
   font-size: 14px;
   font-weight: 300;
@@ -32,16 +43,25 @@ select {
   letter-spacing: 0px;
   text-align: left;
   width: 219px;
-  padding: 8px 0 10px 16px;
+  padding: 6px 0 6px 16px;
   background-color: transparent;
   border-radius: 19px;
   border-color: var(--gray-variation);
   color: var(--gray-variation);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 select option {
   background-color: transparent;
   border: none;
+}
+
+select:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .loadingSpinner {

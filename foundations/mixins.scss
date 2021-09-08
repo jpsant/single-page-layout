@@ -1,19 +1,19 @@
 $breakpoints: (
-  'xl': (
-    max-width: 1366px
+  "xl": (
+    max-width: 1366px,
   ),
-  'lg': (
-    max-width: 900px
+  "lg": (
+    max-width: 900px,
   ),
-  'md': (
-    max-width: 768px
+  "md": (
+    max-width: 768px,
   ),
-  'sm': (
-    max-width: 450px
+  "sm": (
+    max-width: 450px,
   ),
-  'xm': (
-    max-width: 320px
-  )
+  "xm": (
+    max-width: 320px,
+  ),
 ) !default;
 
 @mixin respond-to($breakpoint) {
@@ -21,9 +21,7 @@ $breakpoints: (
     @media #{inspect(map-get($breakpoints, $breakpoint))} {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
 
       +"Available breakpoints are: #{map-keys($breakpoints)}.";
